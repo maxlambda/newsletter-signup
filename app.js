@@ -40,10 +40,10 @@ app.post("/", (req, res) => {
     };
 
     const jsonData = JSON.stringify(data);
-    const url = "https://us7.api.mailchimp.com/3.0/lists/b9260871d8";
+    const url = "https://us7.api.mailchimp.com/3.0/lists/<audience-list-id>";
     const options = {
         method: "POST",
-        auth: "max1:a9d277e9666e68b318708336b2ec859f-us7"
+        auth: "max1:<api-key>" // an API key is supposed to be here (hidden, obviously).
     };
 
     const requ = https.request(url, options, (resp) => {
@@ -73,9 +73,3 @@ app.post("/failure", (req, res) => {
 app.listen(process.env.PORT || port, () => {
     console.log("Server started on port " + port);
 });
-
-// API KEY
-// 882e17cb0377ee8c51b1f30adf4df770-us7
-
-// AUdience list iD
-// b9260871d8
